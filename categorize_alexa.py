@@ -31,7 +31,11 @@ def parse_html_pages(html):
 def extract_domain_name(text):
     ex = tldextract.extract(text)
     #ExtractResult(subdomain='forums.news', domain='cnn', suffix='com')
-    return ex.domain + '.' + ex.suffix
+    if ex.subdomain:
+        tmp = ex.subdomain + '.' + ex.domain + '.' + ex.suffix
+    else:
+        tmp = ex.domain + '.' + ex.suffix
+    return tmp
 
 
 def iterate_all_htmls(files=None):
@@ -42,21 +46,21 @@ def iterate_all_htmls(files=None):
     for html in htmls:
         t1 = parse_html_pages(html)
         print ("\n------------" +html.split('_')[-1])
-        for i in t1:
-            print (i)
+        #for i in t1:
+        #    print (i)
         all_domains.extend(t1)
 
     all_domains.extend(phishingtank_brand_extract())
     all_domains = sorted(list(set(all_domains)))
 
-    #for i in all_domains:
-    #    print (i)
+    for i in all_domains:
+        print (i)
     return
 
 
 def phishingtank_brand_extract():
-    fname = "phishingTankBrand.txt"
 
+    fname = "phishingTankBrand.domain"
     phishingDomains = list()
 
     f = open(fname, 'r')
