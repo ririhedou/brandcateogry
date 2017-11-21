@@ -40,13 +40,17 @@ def iterate_all_htmls(files=None):
     import glob
     htmls = glob.glob('./*.html')
     for html in htmls:
-        all_domains.extend(parse_html_pages(html))
+        t1 = parse_html_pages(html)
+        print ("\n------------" +html.split('_')[-1])
+        for i in t1:
+            print (i)
+        all_domains.extend(t1)
 
     all_domains.extend(phishingtank_brand_extract())
     all_domains = sorted(list(set(all_domains)))
 
-    for i in all_domains:
-        print (i)
+    #for i in all_domains:
+    #    print (i)
     return
 
 
