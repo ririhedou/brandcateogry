@@ -2,13 +2,15 @@
 
 This is used for generating candidates of targeted domains
 
-## Alexa Top categories
+## targeted domains
 
-17*50 = 850
+- Alexa Top 17 categories
+
+-- 17*50 = 850
 
 - PhishingTank targeted Brand
 
-204 (some dead, some cannot be resolved)
+-- 204 (some dead, some cannot be resolved)
 
 ## Overlapping
 
