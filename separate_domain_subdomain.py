@@ -38,15 +38,7 @@ def read_complete_domain_list(fname):
         pure_domains.append(domain_dict[i][0])
 
     pure_domains = sorted(pure_domains)
-    for i in pure_domains:
-        pass
-        #print i
-
-    subdomains = sorted(subdomains)
-    for i in subdomains:
-        print (i)
-
-    return
+    print ("h", pure_domains)
 
 
 fname = 'the_complete_list.domain'
